@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  startup-company-web:
+    build: ./
+    container_name: startup-company-web
+    working_dir: /app/
+    tty: true
+    ports:
+      - ${VITE_APP_PORT}:3000
+    networks:
+      - startup-company-app
+networks:
+  startup-company-app:
+    name: startup-company-app
+    driver: bridge
+
